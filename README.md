@@ -7,9 +7,9 @@ Proyecto de la práctica colaborativa de Git, GitHub, Tailscale y Gitea.
 | Integrante | Rol | Usuario de GitHub |
 | --- | --- | --- |
 | Santiago Josué Márquez Carreño | Por definir | `SantiagoMarquez06` |
-| Pendiente | Por definir | Pendiente |
-| Pendiente | Por definir | Pendiente |
-| Pendiente | Por definir | Pendiente |
+| Daniel Gualan | Por definir | Pendiente |
+| Jonathan Guaman | Por definir | Pendiente |
+| Daniel Leon | Por definir | Pendiente |
 
 ## Flujo de trabajo
 
