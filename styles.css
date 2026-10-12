@@ -147,8 +147,9 @@ h1 {
 }
 
 .member-card a {
+  position: relative;
   display: block;
-  min-height: 11rem;
+  min-height: 18rem;
   padding: 1.5rem;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -165,9 +166,54 @@ h1 {
 }
 
 .member-card .emoji {
-  display: block;
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
   margin-bottom: 1.25rem;
+  background: #eeecff;
+  border-radius: 1rem;
   font-size: 2rem;
+  line-height: 1.2;
+}
+
+.member-card--orange .emoji {
+  background: #fff1da;
+}
+
+.member-card--green .emoji {
+  background: #dcfce7;
+}
+
+.member-card--pink .emoji {
+  background: #fce7f3;
+}
+
+.member-number {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.member-card h3 {
+  margin: 0.55rem 0 0.35rem;
+  font-size: 1.35rem;
+}
+
+.member-card p {
+  color: var(--muted);
+}
+
+.card-link {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
 .profile {
@@ -189,6 +235,18 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+.profile-card--orange {
+  --profile-accent: #c2410c;
+}
+
+.profile-card--green {
+  --profile-accent: #15803d;
+}
+
+.profile-card--pink {
+  --profile-accent: #be185d;
+}
+
 .profile-emoji {
   font-size: 4rem;
 }
@@ -196,6 +254,74 @@ h1 {
 .profile-card h1 {
   color: var(--ink);
   font-size: clamp(2.25rem, 8vw, 4rem);
+}
+
+.profile-card .eyebrow,
+.profile-card .back-link {
+  color: var(--profile-accent, var(--primary-dark));
+}
+
+.profile-summary {
+  margin-bottom: 2rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.profile-detail {
+  padding: 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+}
+
+.profile-detail span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.profile-detail strong {
+  font-size: 1rem;
+}
+
+.projects {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.projects h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tags li {
+  padding: 0.45rem 0.75rem;
+  color: var(--primary-dark);
+  background: #eeecff;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .profile-list {
@@ -228,5 +354,23 @@ footer p {
   .team {
     padding-inline: 1.25rem;
   }
+
+  .profile {
+    padding: 1rem;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button,
+  .member-card a {
+    transition: none;
+  }
+}

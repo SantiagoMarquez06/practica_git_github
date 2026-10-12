@@ -29,10 +29,9 @@ Cada persona crea su rama desde `main` actualizado:
 git switch main
 git pull origin main
 git switch -c feature/seccion-nombre
-Copy-Item plantilla-perfil.html nombre.html
 ```
 
-Debe reemplazar el contenido de `nombre.html` con su nombre, carrera, hobby y emoji. También agrega una tarjeta dentro de `<ul id="integrantes">` en `index.html`:
+Cada persona edita el archivo que corresponda a su número (`integrante-1.html`, `integrante-2.html`, `integrante-3.html` o `integrante-4.html`) y reemplaza el nombre, carrera, hobby y proyectos provisionales. También actualiza el nombre de su tarjeta dentro de `<ul id="integrantes">` en `index.html`. Las tarjetas ya están creadas con esta estructura:
 
 ```html
 <li class="member-card">
@@ -49,7 +48,7 @@ Luego revisa y publica el cambio:
 ```powershell
 git status
 git diff
-git add index.html nombre.html
+git add index.html integrante-N.html
 git commit -m "Agrega sección de Nombre"
 git push -u origin feature/seccion-nombre
 ```
