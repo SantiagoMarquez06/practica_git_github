@@ -21,6 +21,8 @@ La portada enlaza cuatro perfiles provisionales: `integrante-1.html`, `integrant
 
 Las instrucciones paso a paso para conservar las ramas, revisiones y evidencias están en [GUIA_EQUIPO.md](GUIA_EQUIPO.md). `plantilla-perfil.html` queda disponible como referencia para mantener la misma estructura visual.
 
+La distribución exacta del trabajo que debe realizar cada persona está en [TAREAS_INTEGRANTES.md](TAREAS_INTEGRANTES.md). Ese documento se puede compartir directamente con todo el equipo.
+
 ## Evidencias
 
 La carpeta `informe` contiene la plantilla del informe final. `informe/informe.html` está maquetado en seis páginas A4 y se puede exportar a PDF desde el navegador. Las capturas reales deben guardarse en `informe/capturas` y colocarse en el informe antes de exportarlo.
