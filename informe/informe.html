@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informe · Git, GitHub, Tailscale y Gitea</title>
+  <link rel="stylesheet" href="informe.css">
+</head>
+<body>
+  <main class="report">
+    <section class="page cover">
+      <div>
+        <p class="kicker">Informe de práctica</p>
+        <h1>Git, GitHub,<br>Tailscale y Gitea</h1>
+        <p class="lead">Flujo colaborativo de una página web de equipo</p>
+      </div>
+
+      <dl class="metadata">
+        <div><dt>Equipo</dt><dd>[número]</dd></div>
+        <div><dt>Asignatura</dt><dd>[nombre]</dd></div>
+        <div><dt>Docente</dt><dd>[nombre]</dd></div>
+        <div><dt>Fecha</dt><dd>[fecha]</dd></div>
+        <div><dt>Repositorio</dt><dd>github.com/SantiagoMarquez06/practica_git_github</dd></div>
+      </dl>
+
+      <div>
+        <h2>Integrantes y roles</h2>
+        <table>
+          <thead><tr><th>Integrante</th><th>Rol</th></tr></thead>
+          <tbody>
+            <tr><td>Santiago Josué Márquez Carreño</td><td>[rol]</td></tr>
+            <tr><td>[nombre 2]</td><td>[rol]</td></tr>
+            <tr><td>[nombre 3]</td><td>[rol]</td></tr>
+            <tr><td>[nombre 4]</td><td>[rol]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="page-number">1</p>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Parte A</p>
+      <h2>Trabajo colaborativo en GitHub</h2>
+      <p>Creamos un repositorio privado y protegimos <code>main</code> para exigir Pull Requests, resolución de comentarios y una aprobación. Cada cambio se desarrolló en una rama <code>feature/...</code>, fue revisado por otro integrante y se integró después de atender sus observaciones.</p>
+
+      <div class="flow" aria-label="Flujo de colaboración">
+        <span>Issue</span><b>→</b><span>Rama</span><b>→</b><span>Commit</span><b>→</b><span>PR</span><b>→</b><span>Revisión</span><b>→</b><span>Merge</span>
+      </div>
+
+      <figure class="evidence evidence-large">
+        <div>Insertar captura del grafo<br><code>git log --oneline --graph --all</code></div>
+        <figcaption>Figura 1. Historia y ramas del repositorio.</figcaption>
+      </figure>
+
+      <p>Los commits pequeños y descriptivos permitieron identificar quién realizó cada aporte. Los Issues vincularon cada tarea con su PR y se cerraron automáticamente al fusionar los cambios.</p>
+      <p class="page-number">2</p>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Parte A</p>
+      <h2>Conflicto y revisión de código</h2>
+      <p>El conflicto ocurrió porque dos ramas creadas desde la misma versión de <code>main</code> modificaron el mismo título de <code>index.html</code>. Después de fusionar la primera rama, Git no pudo elegir automáticamente cuál texto conservar en la segunda.</p>
+
+      <figure class="evidence">
+        <div>Insertar captura del PR con<br>conflicto resuelto y comentario</div>
+        <figcaption>Figura 2. Revisión cruzada y resolución del conflicto.</figcaption>
+      </figure>
+
+      <h3>Cómo lo resolvimos</h3>
+      <ol>
+        <li>Actualizamos la rama pendiente con los cambios recientes de <code>main</code>.</li>
+        <li>Revisamos los marcadores <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> y <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</li>
+        <li>Acordamos el título definitivo y eliminamos los marcadores.</li>
+        <li>Confirmamos la solución con un nuevo commit y actualizamos el PR.</li>
+      </ol>
+
+      <p>Este proceso mostró que Git detecta la incompatibilidad, pero el equipo debe decidir el contenido correcto. El comentario de revisión dejó evidencia de la decisión y de la participación cruzada.</p>
+      <p class="page-number">3</p>
+    </section>
+
+    <section class="page">
+      <p class="kicker">Partes B, C y D</p>
+      <h2>Red privada y servidor propio</h2>
+      <div class="two-columns">
+        <div>
+          <h3>Tailscale</h3>
+          <p>Conectó las cuatro laptops mediante una red privada cifrada. Así accedimos al anfitrión por su IP <code>100.x.x.x</code> sin abrir puertos en el router.</p>
+        </div>
+        <div>
+          <h3>Gitea</h3>
+          <p>Alojamos un segundo remoto Git. El primer <code>push</code> transfirió también la historia creada durante la etapa de GitHub.</p>
+        </div>
+      </div>
+
+      <div class="evidence-grid">
+        <figure class="evidence compact">
+          <div>Captura de Tailscale:<br>4 equipos y ping</div>
+          <figcaption>Figura 3. Tailnet del equipo.</figcaption>
+        </figure>
+        <figure class="evidence compact">
+          <div>Captura de Gitea:<br>commits y PR</div>
+          <figcaption>Figura 4. Historia en Gitea.</figcaption>
+        </figure>
+      </div>
+
+      <p>Cuando cerramos la terminal de Gitea, el servidor dejó de responder. Los commits locales continuaron funcionando porque cada clon conserva la historia completa. Usamos la IP de Tailscale porque <code>localhost</code> siempre apunta al equipo desde el cual se escribe, no a la laptop del anfitrión.</p>
+
+      <h3>Dos remotos, el mismo Git</h3>
+      <pre>origin  → GitHub
+gitea  → http://100.x.x.x:3000/equipo-N/repositorio.git</pre>
+      <p class="page-number">4</p>
+    </section>
+
+    <section class="page answers">
+      <p class="kicker">Comprensión</p>
+      <h2>Preguntas 1–3</h2>
+
+      <h3>1. ¿Qué diferencia hay entre Git, GitHub y Gitea?</h3>
+      <p>Git registra versiones en cada computadora y funciona sin conexión. GitHub y Gitea alojan repositorios para compartirlos y añaden Issues y Pull Requests. GitHub es un servicio administrado en la nube; Gitea se instala en infraestructura propia y deja su mantenimiento en manos del equipo.</p>
+
+      <h3>2. ¿Para qué sirve una rama?</h3>
+      <p>Una rama permite desarrollar un cambio sin alterar de inmediato la versión estable. En la práctica cada perfil tuvo su propia rama, lo que permitió revisar y corregir el trabajo antes de integrarlo. La protección de <code>main</code> evitó publicar cambios directos sin revisión.</p>
+
+      <h3>3. ¿Qué es un conflicto y cómo se resolvió?</h3>
+      <p>Es una incompatibilidad que Git no puede resolver automáticamente. Ocurrió al cambiar la misma línea desde dos ramas. Actualizamos la segunda rama, elegimos el título acordado, eliminamos los marcadores y guardamos la solución en un commit.</p>
+
+      <div class="note">Cada integrante debe revisar y adaptar con sus propias palabras al menos una respuesta antes de entregar.</div>
+      <p class="page-number">5</p>
+    </section>
+
+    <section class="page answers">
+      <p class="kicker">Comprensión y reflexión</p>
+      <h2>Preguntas 4–6</h2>
+
+      <h3>4. ¿Qué problema resolvió Tailscale?</h3>
+      <p>Permitió comunicar laptops ubicadas en redes distintas como si compartieran una red local privada. Sin Tailscale, desde casas diferentes no alcanzaríamos la IP local del anfitrión y tendríamos que publicar un puerto o usar infraestructura externa.</p>
+
+      <h3>5. ¿Por qué funcionaron los commits con Gitea apagado?</h3>
+      <p>Git es distribuido: cada clon contiene el proyecto y su historia. Gitea solo hizo falta para compartir cambios mediante <code>push</code> y <code>pull</code>. Al encenderlo de nuevo, enviamos los commits acumulados.</p>
+
+      <h3>6. ¿Cuándo conviene usar Gitea?</h3>
+      <p>Conviene cuando una organización debe mantener el código en su propia red o aplicar controles internos. Una institución pública podría alojar allí un sistema con integraciones sensibles, asumiendo las actualizaciones, seguridad y copias de respaldo.</p>
+
+      <h3>Reflexión final</h3>
+      <p>El servidor en la laptop ofreció control, privacidad y bajo costo, pero dependió de su energía, conexión y disco. GitHub aportó mayor disponibilidad y mantenimiento administrado. Para un entorno real ejecutaríamos Gitea en un equipo dedicado y programaríamos respaldos.</p>
+
+      <div class="checklist">□ Datos completos &nbsp; □ 4 PR en GitHub &nbsp; □ Conflicto documentado<br>□ 4 equipos en Tailscale &nbsp; □ 4 PR en Gitea &nbsp; □ Capturas legibles</div>
+      <p class="page-number">6</p>
+    </section>
+  </main>
+</body>
+</html>
+
