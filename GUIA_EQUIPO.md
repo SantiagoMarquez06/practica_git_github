@@ -102,5 +102,4 @@ En Gitea deben proteger `main`, crear cuatro Issues y desarrollar cuatro ramas `
 
 ## 7. Informe
 
-Completen `informe/INFORME.md`, reemplacen todos los corchetes, inserten las capturas reales y exporten a PDF. Revisen que tenga como máximo seis páginas y que cada integrante haya redactado o adaptado al menos una respuesta.
-
+Completen `informe/informe.html`, reemplacen todos los corchetes e inserten las capturas reales. Ábranlo en Chrome o Edge, elijan **Imprimir → Guardar como PDF**, usen tamaño A4, escala 100 % y desactiven encabezados y pies de página. La plantilla genera seis páginas. `informe/INFORME.md` conserva el contenido en un formato cómodo para editar y revisar.

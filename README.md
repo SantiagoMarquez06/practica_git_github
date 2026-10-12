@@ -21,4 +21,4 @@ Las instrucciones paso a paso para conservar las ramas, revisiones y evidencias 
 
 ## Evidencias
 
-La carpeta `informe` contiene la plantilla del informe final. Las capturas reales deben guardarse en `informe/capturas` y agregarse al documento antes de exportarlo a PDF.
+La carpeta `informe` contiene la plantilla del informe final. `informe/informe.html` está maquetado en seis páginas A4 y se puede exportar a PDF desde el navegador. Las capturas reales deben guardarse en `informe/capturas` y colocarse en el informe antes de exportarlo.

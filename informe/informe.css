@@ -1,0 +1,283 @@
+:root {
+  --ink: #17213a;
+  --muted: #626b80;
+  --primary: #4f46e5;
+  --accent: #f59e0b;
+  --paper: #ffffff;
+  --screen: #e7e9f0;
+  --line: #d9deea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--screen);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.48;
+}
+
+.report {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  padding: 20mm 19mm 17mm;
+  background: var(--paper);
+  box-shadow: 0 12px 35px rgba(23, 33, 58, 0.16);
+  break-after: page;
+}
+
+.page:last-child {
+  break-after: auto;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 12mm solid var(--primary);
+}
+
+.kicker {
+  margin: 0 0 3mm;
+  color: var(--primary);
+  font-size: 9pt;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 6mm;
+  font-size: 38pt;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-bottom: 6mm;
+  font-size: 23pt;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  margin: 5mm 0 2mm;
+  font-size: 12pt;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 15pt;
+}
+
+.metadata {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm 8mm;
+  margin: 0;
+}
+
+.metadata div {
+  padding-bottom: 2mm;
+  border-bottom: 1px solid var(--line);
+}
+
+dt {
+  color: var(--muted);
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 1mm 0 0;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 2.2mm 2.5mm;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+
+th {
+  color: #fff;
+  background: var(--primary);
+}
+
+code,
+pre {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+code {
+  padding: 0.2mm 1mm;
+  background: #f0f1f7;
+  border-radius: 1mm;
+  font-size: 0.92em;
+}
+
+pre {
+  padding: 4mm;
+  background: #17153b;
+  color: #fff;
+  border-radius: 3mm;
+}
+
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2mm;
+  margin: 7mm 0;
+  color: var(--primary);
+}
+
+.flow span {
+  padding: 2mm 3mm;
+  color: var(--ink);
+  background: #f0f1ff;
+  border: 1px solid #dcdafe;
+  border-radius: 2mm;
+  font-size: 8pt;
+  font-weight: 700;
+}
+
+.evidence {
+  margin: 6mm 0;
+}
+
+.evidence > div {
+  display: grid;
+  min-height: 84mm;
+  place-items: center;
+  padding: 5mm;
+  color: var(--muted);
+  background: repeating-linear-gradient(135deg, #fafbfe, #fafbfe 8px, #f3f4f8 8px, #f3f4f8 16px);
+  border: 1.5px dashed #aeb5c7;
+  border-radius: 3mm;
+  text-align: center;
+}
+
+.evidence-large > div {
+  min-height: 108mm;
+}
+
+.evidence.compact > div {
+  min-height: 58mm;
+}
+
+figcaption {
+  margin-top: 2mm;
+  color: var(--muted);
+  font-size: 8.5pt;
+}
+
+ol {
+  padding-left: 5mm;
+}
+
+li {
+  margin-bottom: 1.5mm;
+}
+
+.two-columns,
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7mm;
+}
+
+.two-columns > div {
+  padding: 0 5mm 3mm;
+  border-left: 2mm solid var(--accent);
+}
+
+.two-columns h3 {
+  margin-top: 0;
+}
+
+.answers p {
+  margin-bottom: 5mm;
+}
+
+.note,
+.checklist {
+  margin-top: 7mm;
+  padding: 4mm;
+  background: #fff7e6;
+  border-left: 1.5mm solid var(--accent);
+  border-radius: 1.5mm;
+  font-size: 9pt;
+}
+
+.page-number {
+  position: absolute;
+  right: 19mm;
+  bottom: 8mm;
+  margin: 0;
+  color: var(--muted);
+  font-size: 8pt;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .report {
+    display: block;
+    padding: 0;
+  }
+
+  .page {
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .report {
+    display: block;
+    padding: 0;
+  }
+
+  .page {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    margin-bottom: 1rem;
+    padding: 2rem 1.25rem 3rem;
+  }
+}
