@@ -17,6 +17,8 @@ Cada cambio se desarrolla en una rama `feature/...`, se sube a GitHub y se integ
 
 Para abrir la página localmente, basta con abrir `index.html` en un navegador. No requiere instalar dependencias.
 
+Las instrucciones paso a paso para conservar las ramas, revisiones y evidencias están en [GUIA_EQUIPO.md](GUIA_EQUIPO.md). Cada integrante puede copiar `plantilla-perfil.html` para crear su archivo sin cambiar la estructura visual.
+
 ## Evidencias
 
 La carpeta `informe` contiene la plantilla del informe final. Las capturas reales deben guardarse en `informe/capturas` y agregarse al documento antes de exportarlo a PDF.
